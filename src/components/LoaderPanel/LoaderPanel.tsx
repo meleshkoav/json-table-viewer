@@ -14,7 +14,9 @@ export function LoaderPanel({ state, onStart, onCancel }: LoaderPanelProps) {
     case 'idle':
       return (
         <section className={styles.panel}>
-          <p className={styles.message}>Данные ещё не загружены.</p>
+          <p className={styles.message} role="status">
+            Данные ещё не загружены.
+          </p>
           <button className={styles.primary} onClick={onStart} type="button">
             Загрузить
           </button>
@@ -34,7 +36,9 @@ export function LoaderPanel({ state, onStart, onCancel }: LoaderPanelProps) {
     case 'success':
       return (
         <section className={styles.summary}>
-          <p className={styles.message}>Загружено записей: {state.data.length}</p>
+          <p className={styles.message} role="status">
+            Загружено записей: {state.data.length.toLocaleString('ru-RU')}
+          </p>
           <button className={styles.secondary} onClick={onStart} type="button">
             Загрузить заново
           </button>
@@ -44,7 +48,9 @@ export function LoaderPanel({ state, onStart, onCancel }: LoaderPanelProps) {
     case 'cancelled':
       return (
         <section className={styles.panel}>
-          <p className={styles.message}>Загрузка отменена.</p>
+          <p className={styles.message} role="status">
+            Загрузка отменена.
+          </p>
           <button className={styles.primary} onClick={onStart} type="button">
             Загрузить снова
           </button>
@@ -53,7 +59,7 @@ export function LoaderPanel({ state, onStart, onCancel }: LoaderPanelProps) {
 
     case 'error':
       return (
-        <section className={`${styles.panel} ${styles.failed}`}>
+        <section className={`${styles.panel} ${styles.failed}`} role="alert">
           <p className={styles.message}>Не удалось загрузить данные</p>
           <p className={styles.reason}>{state.message}</p>
           <button className={styles.primary} onClick={onStart} type="button">

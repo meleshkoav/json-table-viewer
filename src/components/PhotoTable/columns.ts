@@ -4,6 +4,11 @@ import type { Photo } from '@/types/photo'
 
 export const features = tableFeatures({})
 
+export const LINK_FIELDS: ReadonlySet<string> = new Set([
+  'url',
+  'thumbnailUrl',
+] satisfies (keyof Photo)[])
+
 const helper = createColumnHelper<typeof features, Photo>()
 
 export const columns = helper.columns([

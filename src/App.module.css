@@ -9,7 +9,7 @@
 .title {
   margin: 0;
   font-size: 1.5rem;
-  color: #1f2733;
+  color: var(--color-text);
 }
 
 .results {
@@ -22,5 +22,11 @@
 .empty {
   margin: 0;
   font-size: 0.875rem;
-  color: #3d4753;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 40rem) {
+  .title {
+    font-size: 1.25rem;
+  }
 }
