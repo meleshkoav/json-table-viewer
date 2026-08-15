@@ -6,7 +6,9 @@
 
 body {
   margin: 0;
-  font: 16px/1.45 system-ui, sans-serif;
+  font:
+    16px/1.45 system-ui,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
