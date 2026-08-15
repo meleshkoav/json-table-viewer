@@ -2,6 +2,8 @@ import { useRef } from 'react'
 import { useTable } from '@tanstack/react-table'
 import { useVirtualizer } from '@tanstack/react-virtual'
 
+import { Highlight } from '@/components/Highlight'
+import { SEARCH_FIELD } from '@/hooks/useFilteredPhotos'
 import type { Photo } from '@/types/photo'
 
 import { columns, features } from './columns'
@@ -12,9 +14,10 @@ const OVERSCAN = 8
 
 interface PhotoTableProps {
   photos: Photo[]
+  query: string
 }
 
-export function PhotoTable({ photos }: PhotoTableProps) {
+export function PhotoTable({ photos, query }: PhotoTableProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const table = useTable({ features, columns, data: photos })
   const rows = table.getRowModel().rows
@@ -62,7 +65,11 @@ export function PhotoTable({ photos }: PhotoTableProps) {
               >
                 {row.getAllCells().map((cell) => (
                   <td className={styles.cell} key={cell.id} role="cell">
-                    <table.FlexRender cell={cell} />
+                    {cell.column.id === SEARCH_FIELD ? (
+                      <Highlight query={query} text={row.original[SEARCH_FIELD]} />
+                    ) : (
+                      <table.FlexRender cell={cell} />
+                    )}
                   </td>
                 ))}
               </tr>
