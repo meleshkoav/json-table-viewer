@@ -11,25 +11,31 @@
   border: none;
   border-radius: 999px;
   overflow: hidden;
-  background: #e7eaee;
+  background: var(--color-track);
 }
 
 .bar::-webkit-progress-bar {
-  background: #e7eaee;
+  background: var(--color-track);
 }
 
 .bar::-webkit-progress-value {
-  background: #4a7cf7;
+  background: var(--color-accent);
 }
 
 .bar::-moz-progress-bar {
-  background: #4a7cf7;
+  background: var(--color-accent);
 }
 
 .bar:indeterminate {
   background:
-    linear-gradient(90deg, #a9c1fb 0%, #4a7cf7 50%, #a9c1fb 100%) no-repeat,
-    #e7eaee;
+    linear-gradient(
+        90deg,
+        var(--color-accent-soft) 0%,
+        var(--color-accent) 50%,
+        var(--color-accent-soft) 100%
+      )
+      no-repeat,
+    var(--color-track);
   background-size: 40% 100%;
   animation: sweep 1.1s ease-in-out infinite alternate;
 }
@@ -61,6 +67,6 @@
 .caption {
   margin: 0;
   font-size: 0.875rem;
-  color: #3d4753;
+  color: var(--color-text-muted);
   font-variant-numeric: tabular-nums;
 }

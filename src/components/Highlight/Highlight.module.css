@@ -1,5 +1,5 @@
 .mark {
   border-radius: 2px;
-  background: #ffe066;
+  background: var(--color-mark);
   color: inherit;
 }

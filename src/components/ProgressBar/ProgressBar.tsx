@@ -1,3 +1,5 @@
+import { useId } from 'react'
+
 import type { LoadProgress } from '@/types/loader'
 
 import { formatBytes } from './formatBytes'
@@ -33,11 +35,20 @@ interface ProgressBarProps {
 
 export function ProgressBar({ progress }: ProgressBarProps) {
   const { value, max, caption } = readProgress(progress)
+  const captionId = useId()
 
   return (
     <div className={styles.wrapper}>
-      <progress className={styles.bar} max={max} value={value} />
-      <p className={styles.caption}>{caption}</p>
+      <progress
+        aria-describedby={captionId}
+        aria-label="Загрузка данных"
+        className={styles.bar}
+        max={max}
+        value={value}
+      />
+      <p className={styles.caption} id={captionId}>
+        {caption}
+      </p>
     </div>
   )
 }

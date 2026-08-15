@@ -5,9 +5,9 @@
   gap: 0.75rem;
   max-width: 32rem;
   padding: 1rem;
-  border: 1px solid #d5dae0;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: #fff;
+  background: var(--color-surface);
 }
 
 .summary {
@@ -18,24 +18,24 @@
 }
 
 .failed {
-  border-color: #f0aaa2;
-  background: #fdf4f3;
+  border-color: var(--color-danger-border);
+  background: var(--color-danger-surface);
 }
 
 .message {
   margin: 0;
-  color: #3d4753;
+  color: var(--color-text-muted);
 }
 
 .failed .message {
   font-weight: 600;
-  color: #a03026;
+  color: var(--color-danger);
 }
 
 .reason {
   margin: 0;
   font-size: 0.875rem;
-  color: #a03026;
+  color: var(--color-danger);
 }
 
 .primary,
@@ -49,26 +49,26 @@
 }
 
 .primary {
-  background: #4a7cf7;
-  color: #fff;
+  background: var(--color-accent-strong);
+  color: var(--color-on-accent);
 }
 
 .primary:hover {
-  background: #3a68d8;
+  background: var(--color-accent-hover);
 }
 
 .secondary {
-  border-color: #d5dae0;
-  background: #fff;
-  color: #3d4753;
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
 }
 
 .secondary:hover {
-  background: #f2f4f7;
+  background: var(--color-surface-muted);
 }
 
 .primary:focus-visible,
 .secondary:focus-visible {
-  outline: 2px solid #4a7cf7;
+  outline: 2px solid var(--color-accent);
   outline-offset: 1px;
 }

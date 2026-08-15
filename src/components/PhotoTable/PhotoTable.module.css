@@ -1,14 +1,20 @@
 .scroll {
   height: 70svh;
   overflow: auto;
-  border: 1px solid #d5dae0;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: #fff;
+  background: var(--color-surface);
+}
+
+.scroll:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .table {
   display: grid;
   width: 100%;
+  min-width: 50rem;
 }
 
 .head {
@@ -16,8 +22,8 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  background: #f2f4f7;
-  box-shadow: inset 0 -1px 0 #d5dae0;
+  background: var(--color-surface-muted);
+  box-shadow: inset 0 -1px 0 var(--color-border);
 }
 
 .body {
@@ -36,7 +42,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  border-bottom: 1px solid #edf0f3;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .cell {
@@ -48,8 +54,15 @@
 }
 
 .head .cell {
-  height: 2.5rem;
-  line-height: 2.5rem;
   font-weight: 600;
-  color: #3d4753;
+  color: var(--color-text-muted);
+}
+
+.link {
+  color: var(--color-accent-strong);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
 }

@@ -30,8 +30,9 @@ export function App() {
       {state.status === 'success' && (
         <section className={styles.results}>
           <SearchInput onChange={setQuery} value={query} />
-          <p className={styles.counter}>
-            Найдено: {filtered.length} из {photos.length}
+          <p className={styles.counter} role="status">
+            Найдено: {filtered.length.toLocaleString('ru-RU')} из{' '}
+            {photos.length.toLocaleString('ru-RU')}
           </p>
           {filtered.length > 0 ? (
             <PhotoTable photos={filtered} query={search} />
