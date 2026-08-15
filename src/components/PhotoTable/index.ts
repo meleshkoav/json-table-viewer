@@ -1,0 +1,1 @@
+export { PhotoTable } from './PhotoTable'
