@@ -3,7 +3,7 @@ import type { Photo } from '@/types/photo'
 
 import { parsePhotos } from './parsePhotos'
 
-export const PHOTOS_URL = 'https://jsonplaceholder.typicode.com/photos'
+const PHOTOS_URL = 'https://jsonplaceholder.typicode.com/photos'
 
 function readTotal(header: string | null): number | null {
   if (header === null) {
