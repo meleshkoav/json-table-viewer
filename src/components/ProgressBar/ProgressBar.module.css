@@ -1,0 +1,66 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bar {
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e7eaee;
+}
+
+.bar::-webkit-progress-bar {
+  background: #e7eaee;
+}
+
+.bar::-webkit-progress-value {
+  background: #4a7cf7;
+}
+
+.bar::-moz-progress-bar {
+  background: #4a7cf7;
+}
+
+.bar:indeterminate {
+  background:
+    linear-gradient(90deg, #a9c1fb 0%, #4a7cf7 50%, #a9c1fb 100%) no-repeat,
+    #e7eaee;
+  background-size: 40% 100%;
+  animation: sweep 1.1s ease-in-out infinite alternate;
+}
+
+.bar:indeterminate::-webkit-progress-bar {
+  background: transparent;
+}
+
+.bar:indeterminate::-moz-progress-bar {
+  background: transparent;
+}
+
+@keyframes sweep {
+  from {
+    background-position: 0% 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar:indeterminate {
+    animation: none;
+  }
+}
+
+.caption {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #3d4753;
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,26 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1f2733;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.counter,
+.empty {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #3d4753;
+}
