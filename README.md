@@ -175,6 +175,8 @@ curl -sI https://jsonplaceholder.typicode.com/photos
 | `npm run lint` | ESLint по всему репозиторию |
 | `npm run format` | Prettier переписывает файлы в `src/` |
 | `npm run format:check` | Prettier проверяет `src/`, ничего не меняя |
+| `npm test` | Vitest, один прогон и выход |
+| `npm run test:watch` | Vitest в режиме наблюдения за файлами |
 
 ## Качество кода
 
@@ -184,13 +186,31 @@ ESLint работает на типах (`recommendedTypeChecked`) и вдоба
 дефолтные экспорты внутри `src/` — так имя сущности одинаково во всех местах,
 где она импортируется.
 
+### Тесты
+
+[Vitest](https://vitest.dev/) с [Testing Library](https://testing-library.com/)
+и jsdom; тестовые файлы лежат рядом с проверяемым кодом:
+
+```bash
+npm test
+```
+
+Покрыты три места, где ошибка не бросается в глаза: разбиение строки
+на подсвеченные сегменты
+([`Highlight`](src/components/Highlight/Highlight.test.tsx)),
+задержка поиска после ввода
+([`useDebouncedValue`](src/hooks/useDebouncedValue.test.ts)) и отмена загрузки
+([`useJsonLoader`](src/hooks/useJsonLoader.test.ts)). Фейковый загрузчик
+в последнем тесте обязан слушать `AbortSignal` — иначе он не воспроизводит
+поведение настоящего `fetch`, и тест проходил бы по недоразумению.
+
 Вместе с зависимостями `npm ci` ставит git-хуки (husky, скрипт `prepare`):
 
 | Хук | Что делает |
 | --- | --- |
 | `pre-commit` | `lint-staged`: ESLint с `--fix` и Prettier по застейдженным файлам `src/` |
 | `commit-msg` | commitlint: сообщение должно соответствовать Conventional Commits |
-| `pre-push` | `npm run build`: сломанная сборка не уедет в удалённый репозиторий |
+| `pre-push` | `npm run build && npm test`: ни сломанная сборка, ни упавший тест не уедут в удалённый репозиторий |
 
 Разово обойти проверки — `git commit --no-verify`, `git push --no-verify`
 или переменная окружения `HUSKY=0`.
