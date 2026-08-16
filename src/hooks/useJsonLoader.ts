@@ -41,7 +41,7 @@ export function useJsonLoader<T>(load: JsonLoad<T>): JsonLoader<T> {
     load({
       signal: controller.signal,
       onProgress: (progress) => {
-        if (isCurrent()) {
+        if (isCurrent() && !controller.signal.aborted) {
           setState({ status: 'loading', progress })
         }
       },
